@@ -11,7 +11,7 @@ const stmt = db.prepare('INSERT INTO users (username, password) VALUES (@usernam
 stmt.run({ username: "administrator", password: "you will never get this! :)" });
 stmt.run({ username: "admin", password: "you will never get this! :)" });
 stmt.run({ username: "root", password: "you will never get this! :)" });
-stmt.run({ username: "cookiemonster", password: "you will never get this! :)" });
+stmt.run({ username: "cookiemonster", password: "nomnomnom" });
 
 app.use(express.static(path.join(__dirname, '/public')));
 // view engine setup
