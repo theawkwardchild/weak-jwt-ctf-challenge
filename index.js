@@ -23,12 +23,12 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
-    res.render('index', { title: 'Taco Truck' });
+    res.render('index', { title: 'Just Want Tacos For Individuals eXperience' });
 });
 
 app.post('/register', function (req, res) {
     if(req.body.username.length < 4 || req.body.password.length < 4){
-        res.render('index', {message: "username or password cannot be less than 4 characters"})
+        res.render('index', {message: "username or password cannot be less than 4 characters", title: 'Just Want Tacos For Individuals eXperience'})
     }
 
     regex = /^[a-zA-Z0-9]+$/
@@ -78,12 +78,12 @@ app.get('/dashboard', function (req, res) {
         username = jwtData['username']
         user_level = jwtData['user_level']
         if (username == "cookiemonster") {
-            res.render('dashboard', {username, user_level, message: 'There was a flag... but I ate it <br/><img src="https://i.imgflip.com/46ud6z.gif" />'});
+            res.render('dashboard', {username, user_level, message: 'There was a flag... but I ate it <br/><img src="https://i.imgflip.com/46ud6z.gif" />', title: 'Just Want Tacos For Individuals eXperience'});
         }
         else if (user_level === "admin" || user_level === "administrator") {
-            res.render('dashboard', {username, user_level, message: 'Welcome admin! Your flag is FLAG-WEAKSAUCESESSION-FLAG'});
+            res.render('dashboard', {username, user_level, message: 'Welcome admin! Your flag is FLAG-WEAKSAUCESESSION-FLAG', title: 'Just Want Tacos For Individuals eXperience'});
         } else {
-            res.render('dashboard', {username, user_level, message: 'Welcome to the userdash dashboard, ' + username + '!'});
+            res.render('dashboard', {username, user_level, message: 'Welcome to the userdash dashboard, ' + username + '!', title: 'Just Want Tacos For Individuals eXperience'});
         }
     } else {
         res.redirect('/');
